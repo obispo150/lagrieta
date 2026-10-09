@@ -18,32 +18,12 @@
     bot: "M108 422 L350 438 Q438 442 440 350 L424 108"
   };
 
-  // Información que aparece al pasar el ratón
-  const INFO = {
-    top:     ["🛡️", "Carril superior (Top)", "Carril largo y aislado. Suelen ir luchadores y tanques en duelos 1 contra 1."],
-    mid:     ["⚡", "Carril central (Mid)", "El carril más corto. Desde aquí se puede rotar rápido a cualquier parte del mapa."],
-    bot:     ["🏹", "Carril inferior (Bot)", "Aquí juegan el tirador (ADC) y el support, en un 2 contra 2."],
-    river:   ["🌊", "Río", "Divide el mapa en dos mitades. Es zona de paso y de lucha por los objetivos."],
-    jungle:  ["🌲", "Jungla", "Laberinto entre carriles con campamentos de monstruos. El jungla la recorre para ganar oro y emboscar."],
-    baseB:   ["🔵", "Base azul", "Aquí reaparece el equipo azul y compra en la tienda. Dentro está su Nexo."],
-    baseR:   ["🔴", "Base roja", "Base del equipo rojo. Si destruyes su Nexo, ganas la partida."],
-    nexusB:  ["💎", "Nexo azul", "El corazón de la base. Si cae, la partida termina."],
-    nexusR:  ["💎", "Nexo rojo", "El corazón de la base enemiga. Destruirlo es el objetivo final."],
-    tower:   ["🗼", "Torre", "Dispara a los enemigos cercanos. Hay que destruir la exterior, la interior y la del inhibidor en orden."],
-    towerN:  ["🗼", "Torre del Nexo", "Las dos últimas defensas antes del Nexo."],
-    inhib:   ["🔷", "Inhibidor", "Si lo destruyes, el enemigo empieza a recibir supersúbditos por ese carril. Reaparece tras unos minutos."],
-    baron:   ["👁️", "Barón Nashor", "Aparece a mitad de partida. Su refuerzo potencia mucho a tus súbditos para empujar y cerrar la partida."],
-    dragon:  ["🐉", "Dragón", "Cada dragón da una mejora permanente al equipo. Con cuatro se consigue el Alma del Dragón."],
-    scuttle: ["🦀", "Cangrejo del río", "Monstruo pacífico que da oro, experiencia y un santuario que revela zona y da velocidad."],
-    blue:    ["🟦", "Centinela azul", "Da un refuerzo que regenera maná y reduce los enfriamientos. Muy buscado por los magos."],
-    red:     ["🟥", "Bramido rojo", "Da un refuerzo que quema y ralentiza a los enemigos al golpearlos."],
-    gromp:   ["🐸", "Gromp", "Campamento de un solo monstruo, muy resistente al principio de la partida."],
-    wolves:  ["🐺", "Lobos", "Un lobo grande y dos pequeños. Campamento rápido de limpiar."],
-    raptors: ["🐦", "Aves", "Un grupo de seis aves. Dan mucho oro si las limpias a tiempo."],
-    krugs:   ["🪨", "Krugs", "Monstruos de roca que se dividen en otros más pequeños al morir."],
-    brush:   ["🌿", "Arbusto", "Te vuelve invisible para los enemigos que no estén dentro o tengan visión. Ideal para emboscar."],
-    minionB: ["🔹", "Súbditos azules", "Avanzan solos por los tres carriles. Matarlos (farmear) es la principal fuente de oro."],
-    minionR: ["🔸", "Súbditos rojos", "Oleadas del equipo rojo. Cada 30 segundos sale una nueva por carril."]
+  // Icono de cada elemento; el texto sale de i18n ("mi.<clave>": "Título|Descripción")
+  const ICONO = {
+    top: "shield", mid: "bolt", bot: "crosshair", river: "wave", jungle: "leaf", baseB: "castle", baseR: "castle",
+    nexusB: "crown", nexusR: "crown", tower: "tower", towerN: "tower", inhib: "layers", baron: "eye", dragon: "flame",
+    scuttle: "crab", blue: "drop", red: "flame", gromp: "frog", wolves: "wolf", raptors: "bird", krugs: "rock",
+    brush: "brush", minionB: "minion", minionR: "minion", intro: "map"
   };
 
   // Campamentos de la mitad azul (la mitad roja es su reflejo)
@@ -61,6 +41,13 @@
     for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
     if (parent) parent.appendChild(e);
     return e;
+  };
+  // Dibuja uno de los iconos propios dentro del mapa
+  const glifo = (parent, name, x, y, size, color) => {
+    const g = el("svg", { x: x - size / 2, y: y - size / 2, width: size, height: size, viewBox: "0 0 24 24", fill: "none",
+      stroke: color, "stroke-width": 2.2, "stroke-linecap": "round", "stroke-linejoin": "round", "pointer-events": "none" }, parent);
+    g.innerHTML = ICONS[name] || "";
+    return g;
   };
   const zona = (e, key) => { e.classList.add("zone"); if (key === "jungle") e.classList.add("bg"); e.dataset.k = key; return e; };
 
@@ -100,13 +87,13 @@
       const g = zona(el("g", { class: "capa-obj" }, svg), k);
       el("circle", { cx: x, cy: y, r: 22, fill: "url(#gFoso)", stroke: c, "stroke-width": 2, opacity: .95 }, g);
       el("circle", { cx: x, cy: y, r: 22, fill: "none", stroke: c, "stroke-width": 2, class: "pulso" }, g);
-      el("text", { x, y: y + 6, "text-anchor": "middle", "font-size": 18 }, g).textContent = k === "baron" ? "👁️" : "🐉";
+      glifo(g, k === "baron" ? "eye" : "flame", x, y, 22, c);
     });
     // Cangrejos
     [[198, 212], [302, 288]].forEach(([x, y]) => {
       const g = zona(el("g", { class: "capa-camp" }, svg), "scuttle");
       el("circle", { cx: x, cy: y, r: 8, fill: "#2a7f8f", stroke: "#bff3ff", "stroke-width": 1.5, filter: "url(#fSombra)" }, g);
-      el("text", { x, y: y + 4, "text-anchor": "middle", "font-size": 10 }, g).textContent = "🦀";
+      glifo(g, "crab", x, y, 11, "#e6fbff");
     });
 
     // Carriles: borde, tierra y línea central
@@ -130,13 +117,13 @@
 
     // Campamentos de la jungla
     const camps = el("g", { class: "capa-camp" }, svg);
-    const ICON = { blue: "", red: "", gromp: "🐸", wolves: "🐺", raptors: "🐦", krugs: "🪨" };
+    const ICON = { blue: "", red: "", gromp: "frog", wolves: "wolf", raptors: "bird", krugs: "rock" };
     const ponCamp = (k, x, y, r) => {
       const g = zona(el("g", { filter: "url(#fSombra)" }, camps), k);
       const color = k === "blue" ? "#3d8bfd" : k === "red" ? "#ff5a4a" : "#c8aa6e";
       el("circle", { cx: x, cy: y, r: r + 3, fill: color, opacity: .25 }, g);
       el("circle", { cx: x, cy: y, r, fill: "#14281e", stroke: color, "stroke-width": 2 }, g);
-      if (ICON[k]) el("text", { x, y: y + r * .45, "text-anchor": "middle", "font-size": r * 1.3 }, g).textContent = ICON[k];
+      if (ICON[k]) glifo(g, ICON[k], x, y, r * 1.4, color);
       else el("circle", { cx: x, cy: y, r: r * .45, fill: color, filter: "url(#fGlow)" }, g);
     };
     CAMPS.forEach(([k, x, y, r]) => { ponCamp(k, x, y, r); const [mx, my] = espejo([x, y]); ponCamp(k, mx, my, r); });
@@ -162,8 +149,9 @@
       const g = zona(el("g", {}, estr), "inhib");
       el("rect", { x: x - 5, y: y - 5, width: 10, height: 10, transform: `rotate(45 ${x} ${y})`, fill: c, stroke: "#fff", "stroke-width": 1, filter: "url(#fGlow)" }, g);
     };
-    // Recolocamos las torres cuando el SVG está en el DOM (hace falta para medir los carriles)
-    requestAnimationFrame(() => {
+    // Las torres se colocan midiendo los carriles, así que hay que esperar a que el mapa se vea
+    svg._colocar = () => {
+      if (svg._hecho) return; svg._hecho = true;
       for (const k of Object.keys(CARRILES)) {
         const p = svg.querySelector("#lane-" + k), L = p.getTotalLength();
         const at = t => { const q = p.getPointAtLength(L * t); return [q.x, q.y]; };
@@ -172,7 +160,7 @@
           if (tipo === "inhib") { inhib(...b, "B"); inhib(...r, "R"); } else { torre(...b, "B"); torre(...r, "R"); }
         });
       }
-    });
+    };
     torre(66, 420, "B", "towerN"); torre(82, 436, "B", "towerN");
     torre(434, 80, "R", "towerN"); torre(418, 64, "R", "towerN");
     const nexo = (x, y, eq) => {
@@ -204,13 +192,17 @@
 
   const svg = construir();
 
+  const intentaColocar = () => { if (svgBox.offsetParent !== null) svg._colocar(); };
+  document.addEventListener("vista", e => { if (e.detail === "aprende") requestAnimationFrame(intentaColocar); });
+  requestAnimationFrame(intentaColocar);
+
   // Panel de información
-  let fijado = null;
+  let fijado = null, ultimo = "intro";
   function mostrar(k) {
-    const [ico, t, d] = INFO[k] || [];
-    if (!t) return;
-    info.innerHTML = `<span class="mi-ico">${ico}</span><div><h4>${t}</h4><p>${d}</p></div>`;
-    info.classList.remove("flash"); void info.offsetWidth; info.classList.add("flash");
+    if (!ICONO[k]) return;
+    ultimo = k;
+    const [titulo, desc] = t("mi." + k).split("|");
+    info.innerHTML = `${icon(ICONO[k])}<div><h4>${titulo}</h4><p>${desc}</p></div>`;
   }
   svg.addEventListener("mouseover", e => { const z = e.target.closest(".zone"); if (z && !fijado) mostrar(z.dataset.k); });
   svg.addEventListener("click", e => {
@@ -221,11 +213,16 @@
   });
 
   // Capas activables
-  const CAPAS = [["tower", "🗼 Torres"], ["camp", "🐺 Campamentos"], ["obj", "🐉 Objetivos"], ["brush", "🌿 Arbustos"], ["minion", "🔹 Súbditos"]];
-  CAPAS.forEach(([k, t]) => {
-    const b = document.createElement("button");
-    b.textContent = t; b.className = "on";
-    b.onclick = () => { b.classList.toggle("on"); svg.classList.toggle("sin-" + k, !b.classList.contains("on")); };
-    layersEl.appendChild(b);
+  const CAPAS = [["tower", "tower", "map.l.towers"], ["camp", "wolf", "map.l.camps"], ["obj", "flame", "map.l.obj"], ["brush", "brush", "map.l.brush"], ["minion", "minion", "map.l.minions"]];
+  function pintaCapas() {
+    layersEl.innerHTML = CAPAS.map(([k, ic, key]) =>
+      `<button type="button" data-capa="${k}" class="${svg.classList.contains("sin-" + k) ? "" : "on"}">${icon(ic)}${t(key)}</button>`).join("");
+  }
+  layersEl.addEventListener("click", e => {
+    const b = e.target.closest("[data-capa]"); if (!b) return;
+    b.classList.toggle("on"); svg.classList.toggle("sin-" + b.dataset.capa, !b.classList.contains("on"));
   });
+  pintaCapas(); mostrar("intro");
+  document.addEventListener("idioma", () => { pintaCapas(); mostrar(ultimo); });
+  svg.setAttribute("aria-label", t("map.h"));
 })();

@@ -47,5 +47,10 @@ const ADSENSE = {
 document.querySelectorAll("[data-cookies]").forEach(b => b.addEventListener("click", e => {
   e.preventDefault();
   if (window.googlefc?.callbackQueue) window.googlefc.callbackQueue.push(window.googlefc.showRevocationMessage);
-  else alert("El panel de cookies estará disponible cuando los anuncios estén activos. Ahora mismo la web no usa cookies de publicidad.");
+  else {
+    const en = typeof LANG !== "undefined" && LANG === "en";
+    const msg = en ? "Cookie settings will be available once ads are enabled. Right now the site uses no advertising cookies."
+                   : "El panel de cookies estará disponible cuando los anuncios estén activos. Ahora mismo la web no usa cookies de publicidad.";
+    typeof toast === "function" ? toast(msg) : alert(msg);
+  }
 }));

@@ -3,359 +3,343 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Grieta — Guía de League of Legends</title>
-<meta name="description" content="Guía no oficial de League of Legends: campeones, objetos, runas, simulador de build, draft, minijuegos y buscador de jugadores.">
+<title>La Grieta — Guía de League of Legends en español</title>
+<meta name="description" content="Campeones, objetos, runas, comparador, simulador de build, draft, minijuegos y guías de League of Legends en español.">
 <link rel="canonical" href="https://lagrieta.eu/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="La Grieta — Guía de League of Legends">
 <meta property="og:description" content="Campeones, objetos, runas, simulador de build, draft, minijuegos y guías de League of Legends en español.">
 <meta property="og:url" content="https://lagrieta.eu/">
 <meta property="og:locale" content="es_ES">
-<meta name="theme-color" content="#0a0e17">
+<meta name="theme-color" content="#0b0f17">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <!-- AdSense: cuando Google te dé tu ID, descomenta esta línea para verificar el sitio
 <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX">
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
-<script>
-  // Aplica el tema guardado antes de pintar para evitar parpadeo
-  try{ const t = JSON.parse(localStorage.getItem("tema")); if(t) document.documentElement.dataset.theme = t; }catch(e){}
-</script>
+<script>try{const t=JSON.parse(localStorage.getItem("tema"));if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <a href="#" class="logo">LA <span>GRIETA</span></a>
-    <ul id="menu">
-      <li class="dd"><a href="#juego">Guía ▾</a>
-        <ul>
-          <li><a href="#juego">El juego</a></li>
-          <li><a href="#roles">Roles</a></li>
-          <li><a href="#mapa">Mapa</a></li>
-          <li><a href="#objetivos">Objetivos</a></li>
-          <li><a href="#esports">Esports</a></li>
-          <li><a href="#glosario">Glosario</a></li>
-        </ul>
+<!-- ================= NAVEGACIÓN ================= -->
+<nav class="topnav">
+  <div class="wrap nav-inner">
+    <a href="#/" class="logo" aria-label="La Grieta">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 30 16 16 30 2 16Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M16 9l7 7-7 7-7-7z" class="logo-core"/></svg>
+      <span>LA GRIETA</span>
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#/" data-route="inicio" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="#/aprende" data-route="aprende" data-i18n="nav.learn">Aprende</a></li>
+      <li><a href="#/campeones" data-route="campeones" data-i18n="nav.champions">Campeones</a></li>
+      <li class="dd">
+        <button class="dd-btn" type="button"><span data-i18n="nav.shop">Objetos</span><i data-icon="chevDown"></i></button>
+        <div class="dd-panel">
+          <a href="#/objetos" data-route="objetos"><i data-icon="bag"></i><span><b data-i18n="nav.items">Objetos</b><small data-i18n="nav.itemsD"></small></span></a>
+          <a href="#/runas" data-route="runas"><i data-icon="rune"></i><span><b data-i18n="nav.runes">Runas y hechizos</b><small data-i18n="nav.runesD"></small></span></a>
+        </div>
       </li>
-      <li><a href="#campeones">Campeones</a></li>
-      <li><a href="guias/">Guías</a></li>
-      <li class="dd"><a href="#objetos">Tienda ▾</a>
-        <ul>
-          <li><a href="#objetos">Objetos</a></li>
-          <li><a href="#runas">Runas y hechizos</a></li>
-        </ul>
+      <li class="dd">
+        <button class="dd-btn" type="button"><span data-i18n="nav.tools">Herramientas</span><i data-icon="chevDown"></i></button>
+        <div class="dd-panel">
+          <a href="#/comparador" data-route="comparador"><i data-icon="scale"></i><span><b data-i18n="nav.compare">Comparador</b><small data-i18n="nav.compareD"></small></span></a>
+          <a href="#/build" data-route="build"><i data-icon="hammer"></i><span><b data-i18n="nav.build">Simulador de build</b><small data-i18n="nav.buildD"></small></span></a>
+          <a href="#/draft" data-route="draft"><i data-icon="draft"></i><span><b data-i18n="nav.draft">Draft</b><small data-i18n="nav.draftD"></small></span></a>
+          <a href="#/jugador" data-route="jugador"><i data-icon="search"></i><span><b data-i18n="nav.player">Buscar jugador</b><small data-i18n="nav.playerD"></small></span></a>
+        </div>
       </li>
-      <li class="dd"><a href="#comparador">Herramientas ▾</a>
-        <ul>
-          <li><a href="#comparador">Comparador</a></li>
-          <li><a href="#build">Simulador de build</a></li>
-          <li><a href="#jugador">Buscar jugador</a></li>
-        </ul>
+      <li class="dd">
+        <button class="dd-btn" type="button"><span data-i18n="nav.games">Juegos</span><i data-icon="chevDown"></i></button>
+        <div class="dd-panel">
+          <a href="#/adivina" data-route="adivina"><i data-icon="question"></i><span><b data-i18n="nav.guess">Adivina el campeón</b><small data-i18n="nav.guessD"></small></span></a>
+          <a href="#/quiz" data-route="quiz"><i data-icon="brain"></i><span><b data-i18n="nav.quiz">Quiz</b><small data-i18n="nav.quizD"></small></span></a>
+        </div>
       </li>
-      <li class="dd"><a href="#adivina">Juegos ▾</a>
-        <ul>
-          <li><a href="#adivina">Adivina el campeón</a></li>
-          <li><a href="#draft">Draft simulator</a></li>
-          <li><a href="#quiz">Quiz</a></li>
-        </ul>
-      </li>
+      <li><a href="guias/" data-i18n="nav.guides">Guías</a></li>
     </ul>
     <div class="nav-tools">
-      <select id="langSel" aria-label="Idioma de los datos" title="Idioma de los datos del juego">
-        <option value="es_ES">ES</option>
-        <option value="es_MX">LATAM</option>
-        <option value="en_US">EN</option>
-        <option value="fr_FR">FR</option>
-        <option value="de_DE">DE</option>
-        <option value="it_IT">IT</option>
-        <option value="pt_BR">PT</option>
-        <option value="ko_KR">KO</option>
-        <option value="ja_JP">JA</option>
-      </select>
-      <button class="icon-btn" id="themeBtn" aria-label="Cambiar tema" title="Modo claro / oscuro">☀️</button>
-      <button class="icon-btn burger" id="burger" aria-label="Menú">☰</button>
+      <div class="seg" id="langSeg" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="es">ES</button><button type="button" data-lang="en">EN</button>
+      </div>
+      <button class="icon-btn" id="themeBtn" type="button" data-i18n-aria="ui.theme"></button>
+      <button class="icon-btn burger" id="burger" type="button" data-i18n-aria="ui.menu"><i data-icon="menu"></i></button>
     </div>
   </div>
 </nav>
 
-<header class="hero">
-  <div class="hero-inner">
-    <span class="tag">Guía no oficial</span>
-    <h1>Bienvenido a<br>la Grieta del Invocador</h1>
-    <p>Campeones, objetos, runas, herramientas y minijuegos de League of Legends, con datos oficiales del último parche.</p>
-    <a href="#campeones" class="btn">Ver campeones</a>
-    <a href="#adivina" class="btn ghost">Jugar</a>
-    <div class="stats">
-      <div class="stat"><b data-count="2009" id="statAno">0</b><small>Año de lanzamiento</small></div>
-      <div class="stat"><b data-count="170" id="statChamps">0</b><small>Campeones</small></div>
-      <div class="stat"><b data-count="250" id="statItems">0</b><small>Objetos</small></div>
+<main id="app">
+
+<!-- ================= INICIO ================= -->
+<section class="view" data-view="inicio">
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow" data-i18n="home.eyebrow"></p>
+      <h1 data-i18n="home.title"></h1>
+      <p class="lead" data-i18n="home.sub"></p>
+      <div class="hero-cta">
+        <a href="#/campeones" class="btn primary"><span data-i18n="home.cta1"></span><i data-icon="chevRight"></i></a>
+        <a href="#/adivina" class="btn"><i data-icon="question"></i><span data-i18n="home.cta2"></span></a>
+      </div>
+      <dl class="hero-stats">
+        <div><dt data-i18n="home.stat1"></dt><dd id="statChamps">—</dd></div>
+        <div><dt data-i18n="home.stat2"></dt><dd id="statItems">—</dd></div>
+        <div><dt data-i18n="home.stat3"></dt><dd id="statPatch">—</dd></div>
+      </dl>
+    </div>
+    <div class="hero-art" id="heroArt" aria-hidden="true"></div>
+  </header>
+
+  <div class="wrap block">
+    <div class="bhead"><h2 data-i18n="home.exploreT"></h2><p data-i18n="home.exploreS"></p></div>
+    <div class="feature-grid">
+      <a class="feature" href="#/campeones"><i data-icon="users"></i><b data-i18n="nav.champions"></b><span data-i18n="card.champions"></span></a>
+      <a class="feature" href="#/objetos"><i data-icon="bag"></i><b data-i18n="nav.items"></b><span data-i18n="card.items"></span></a>
+      <a class="feature" href="#/runas"><i data-icon="rune"></i><b data-i18n="nav.runes"></b><span data-i18n="card.runes"></span></a>
+      <a class="feature" href="#/comparador"><i data-icon="scale"></i><b data-i18n="nav.compare"></b><span data-i18n="card.compare"></span></a>
+      <a class="feature" href="#/build"><i data-icon="hammer"></i><b data-i18n="nav.build"></b><span data-i18n="card.build"></span></a>
+      <a class="feature" href="#/draft"><i data-icon="draft"></i><b data-i18n="nav.draft"></b><span data-i18n="card.draft"></span></a>
+      <a class="feature" href="#/adivina"><i data-icon="question"></i><b data-i18n="nav.guess"></b><span data-i18n="card.guess"></span></a>
+      <a class="feature" href="#/quiz"><i data-icon="brain"></i><b data-i18n="nav.quiz"></b><span data-i18n="card.quiz"></span></a>
     </div>
   </div>
-</header>
 
-<!-- ============ GUÍA ============ -->
-<section id="juego">
-  <div class="wrap">
-    <div class="head reveal"><h2>¿Qué es el LoL?</h2><div class="divider"></div>
-      <p>Un MOBA (Multiplayer Online Battle Arena) gratuito desarrollado por Riot Games.</p></div>
-    <div class="objs reveal">
-      <div class="obj"><div class="em">⚔️</div><div><h3>5 contra 5</h3><p>Dos equipos, cada jugador controla a un campeón con habilidades únicas.</p></div></div>
-      <div class="obj"><div class="em">🏰</div><div><h3>Destruye el Nexo</h3><p>El objetivo final es derribar las torres e inhibidores enemigos y destruir su Nexo.</p></div></div>
-      <div class="obj"><div class="em">💰</div><div><h3>Oro y experiencia</h3><p>Súbditos, monstruos y enemigos dan oro para objetos y experiencia para subir hasta el nivel 18.</p></div></div>
-      <div class="obj"><div class="em">⏱️</div><div><h3>Partidas de 25–35 min</h3><p>Cada partida empieza de cero: nadie tiene ventaja al principio.</p></div></div>
+  <div class="wrap block">
+    <div class="bhead row"><div><h2 data-i18n="home.guidesT"></h2><p data-i18n="home.guidesS"></p></div>
+      <a class="link-more" href="guias/"><span data-i18n="home.allGuides"></span><i data-icon="chevRight"></i></a></div>
+    <div class="guide-row">
+      <a class="guide-mini" href="guias/principiantes.html"><span class="gm-tag">01</span><b data-i18n="g.beginners"></b><small data-min="7"></small></a>
+      <a class="guide-mini" href="guias/roles.html"><span class="gm-tag">02</span><b data-i18n="g.roles"></b><small data-min="8"></small></a>
+      <a class="guide-mini" href="guias/campeones-faciles.html"><span class="gm-tag">03</span><b data-i18n="g.easy"></b><small data-min="5"></small></a>
     </div>
+  </div>
+
+  <div class="wrap block">
+    <a class="learn-banner" href="#/aprende">
+      <div><h2 data-i18n="home.learnT"></h2><p data-i18n="home.learnS"></p></div>
+      <span class="btn primary"><span data-i18n="home.learnCta"></span><i data-icon="chevRight"></i></span>
+    </a>
   </div>
 </section>
 
-<section id="roles">
-  <div class="wrap">
-    <div class="head reveal"><h2>Los 5 roles</h2><div class="divider"></div><p>Haz clic en un rol para ver más detalles.</p></div>
-    <div class="roles reveal" id="roleCards"></div>
+<!-- ================= APRENDE ================= -->
+<section class="view" data-view="aprende">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="learn.eyebrow"></p><h1 data-i18n="learn.title"></h1><p data-i18n="learn.sub"></p>
+    <div class="subtabs">
+      <a href="#juego" data-i18n="learn.tabGame"></a><a href="#roles" data-i18n="learn.tabRoles"></a><a href="#mapa" data-i18n="learn.tabMap"></a>
+      <a href="#objetivos" data-i18n="learn.tabObj"></a><a href="#esports" data-i18n="learn.tabEsports"></a><a href="#glosario" data-i18n="learn.tabGloss"></a>
+    </div>
+  </header>
+
+  <div class="wrap block" id="juego">
+    <div class="bhead"><h2 data-i18n="game.h"></h2></div>
+    <div class="info-grid">
+      <div class="info"><i data-icon="swords"></i><h3 data-i18n="game.c1t"></h3><p data-i18n="game.c1"></p></div>
+      <div class="info"><i data-icon="castle"></i><h3 data-i18n="game.c2t"></h3><p data-i18n="game.c2"></p></div>
+      <div class="info"><i data-icon="coins"></i><h3 data-i18n="game.c3t"></h3><p data-i18n="game.c3"></p></div>
+      <div class="info"><i data-icon="clock"></i><h3 data-i18n="game.c4t"></h3><p data-i18n="game.c4"></p></div>
+    </div>
+  </div>
+
+  <div class="wrap block" id="roles">
+    <div class="bhead"><h2 data-i18n="roles.h"></h2><p data-i18n="roles.sub"></p></div>
+    <div class="roles" id="roleCards"></div>
     <div class="role-detail" id="roleDetail"></div>
   </div>
-</section>
 
-<section id="mapa">
-  <div class="wrap">
-    <div class="head reveal"><h2>La Grieta del Invocador</h2><div class="divider"></div><p>El mapa principal, con sus torres, campamentos y objetivos. Activa o desactiva capas y explora cada elemento.</p></div>
-    <div class="map-grid reveal">
+  <div class="wrap block" id="mapa">
+    <div class="bhead"><h2 data-i18n="map.h"></h2><p data-i18n="map.sub"></p></div>
+    <div class="map-grid">
       <div class="map-box">
         <div class="map-layers" id="mapLayers"></div>
         <div class="map-svg" id="mapSvg"></div>
       </div>
       <div class="map-side">
-        <div class="map-info" id="mapInfo">
-          <span class="mi-ico">🗺️</span>
-          <div><h4>La Grieta del Invocador</h4><p>Pasa el ratón o toca cualquier elemento del mapa: torres, campamentos, objetivos, bases...</p></div>
-        </div>
+        <div class="map-info" id="mapInfo"></div>
         <ul class="legend">
-          <li><i class="lg lane"></i><b>3 carriles:</b> Top, Mid y Bot, cada uno con 3 torres y un inhibidor por equipo.</li>
-          <li><i class="lg jungle"></i><b>Jungla:</b> laberinto entre carriles con campamentos de monstruos y arbustos.</li>
-          <li><i class="lg river"></i><b>Río:</b> divide el mapa en dos y alberga el Dragón, el Barón y los cangrejos.</li>
-          <li><i class="lg base"></i><b>Bases:</b> cada equipo tiene la suya en una esquina, con su Nexo.</li>
+          <li><i class="lg lane"></i><span data-i18n="map.lg.lane"></span></li>
+          <li><i class="lg jungle"></i><span data-i18n="map.lg.jungle"></span></li>
+          <li><i class="lg river"></i><span data-i18n="map.lg.river"></span></li>
+          <li><i class="lg base"></i><span data-i18n="map.lg.base"></span></li>
         </ul>
       </div>
     </div>
   </div>
+
+  <div class="wrap block" id="objetivos">
+    <div class="bhead"><h2 data-i18n="obj.h"></h2><p data-i18n="obj.sub"></p></div>
+    <div class="info-grid">
+      <div class="info"><i data-icon="flame"></i><h3 data-i18n="obj.c1t"></h3><p data-i18n="obj.c1"></p></div>
+      <div class="info"><i data-icon="eye"></i><h3 data-i18n="obj.c2t"></h3><p data-i18n="obj.c2"></p></div>
+      <div class="info"><i data-icon="tower"></i><h3 data-i18n="obj.c3t"></h3><p data-i18n="obj.c3"></p></div>
+      <div class="info"><i data-icon="target"></i><h3 data-i18n="obj.c4t"></h3><p data-i18n="obj.c4"></p></div>
+    </div>
+  </div>
+
+  <div class="wrap block" id="esports">
+    <div class="bhead"><h2 data-i18n="esp.h"></h2><p data-i18n="esp.sub"></p></div>
+    <ol class="timeline" id="timeline"></ol>
+  </div>
+
+  <div class="wrap block" id="glosario">
+    <div class="bhead"><h2 data-i18n="gl.h"></h2><p data-i18n="gl.sub"></p></div>
+    <div class="gloss" id="gloss"></div>
+  </div>
 </section>
 
-<!-- ============ CAMPEONES ============ -->
-<section id="campeones">
+<!-- ================= CAMPEONES ================= -->
+<section class="view" data-view="campeones">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="ch.eyebrow"></p><h1 data-i18n="ch.title"></h1><p data-i18n="ch.sub"></p></header>
   <div class="wrap">
-    <div class="head reveal"><h2>Todos los campeones</h2><div class="divider"></div>
-      <p>Haz clic en un campeón para ver sus habilidades, historia y aspectos. Pulsa ★ para guardarlo en favoritos.</p></div>
-    <div class="filters" id="filters"></div>
     <div class="toolbar">
-      <input class="search" id="search" type="search" placeholder="Buscar campeón...">
+      <label class="field search-field"><i data-icon="search"></i><input id="search" type="search" data-i18n-ph="ui.search"></label>
       <select id="diffSel" aria-label="Dificultad">
-        <option value="0">Cualquier dificultad</option><option value="1">Fácil</option><option value="2">Media</option><option value="3">Difícil</option>
+        <option value="0" data-i18n="ch.anyDiff"></option><option value="1" data-i18n="ch.easy"></option><option value="2" data-i18n="ch.medium"></option><option value="3" data-i18n="ch.hard"></option>
       </select>
-      <select id="sortSel" aria-label="Ordenar">
-        <option value="az">A → Z</option><option value="za">Z → A</option><option value="diff">Más fáciles primero</option><option value="diffd">Más difíciles primero</option>
+      <select id="sortSel" aria-label="Orden">
+        <option value="az" data-i18n="ch.sortAZ"></option><option value="za" data-i18n="ch.sortZA"></option><option value="diff" data-i18n="ch.sortEasy"></option><option value="diffd" data-i18n="ch.sortHard"></option>
       </select>
-      <button class="btn ghost sm" id="randomBtn">🎲 Aleatorio</button>
+      <button class="btn" id="randomBtn" type="button"><i data-icon="dice"></i><span data-i18n="ui.random"></span></button>
     </div>
+    <div class="chips-row" id="filters"></div>
     <p class="count" id="count"></p>
     <div class="champs" id="champs"></div>
-    <p class="empty" id="empty">No se ha encontrado ningún campeón.</p>
+    <p class="empty" id="empty"></p>
   </div>
+  <div class="ad-slot" data-hueco="tras-campeones"></div>
 </section>
 
-<div class="ad-slot" data-hueco="tras-campeones"></div>
-
-<!-- ============ COMPARADOR ============ -->
-<section id="comparador">
+<!-- ================= OBJETOS ================= -->
+<section class="view" data-view="objetos">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="it.eyebrow"></p><h1 data-i18n="it.title"></h1><p data-i18n="it.sub"></p></header>
   <div class="wrap">
-    <div class="head reveal"><h2>Comparador</h2><div class="divider"></div>
-      <p>Elige dos campeones y compara sus estadísticas a cualquier nivel.</p></div>
-    <div class="cmp-controls">
-      <select id="cmpA" aria-label="Campeón 1"></select>
-      <span class="vs">VS</span>
-      <select id="cmpB" aria-label="Campeón 2"></select>
-    </div>
-    <div class="lvl"><label for="cmpLvl">Nivel <b id="cmpLvlTxt">1</b></label><input type="range" id="cmpLvl" min="1" max="18" value="1"></div>
-    <div class="cmp" id="cmpOut"></div>
-  </div>
-</section>
-
-<!-- ============ OBJETOS ============ -->
-<section id="objetos">
-  <div class="wrap">
-    <div class="head reveal"><h2>Objetos</h2><div class="divider"></div>
-      <p>La tienda de la Grieta del Invocador. Haz clic en un objeto para ver su receta.</p></div>
-    <div class="filters" id="itemTiers"></div>
-    <div class="filters" id="itemTags"></div>
     <div class="toolbar">
-      <input class="search" id="itemSearch" type="search" placeholder="Buscar objeto...">
-      <select id="itemSort" aria-label="Ordenar objetos">
-        <option value="az">A → Z</option><option value="price">Más baratos</option><option value="priced">Más caros</option>
+      <label class="field search-field"><i data-icon="search"></i><input id="itemSearch" type="search" data-i18n-ph="ui.search"></label>
+      <select id="itemSort" aria-label="Orden">
+        <option value="az" data-i18n="it.sortAZ"></option><option value="price" data-i18n="it.sortCheap"></option><option value="priced" data-i18n="it.sortExp"></option>
       </select>
     </div>
+    <div class="chips-row" id="itemTiers"></div>
+    <div class="chips-row small" id="itemTags"></div>
     <p class="count" id="itemCount"></p>
     <div class="items" id="items"></div>
   </div>
 </section>
 
-<!-- ============ RUNAS Y HECHIZOS ============ -->
-<section id="runas">
+<!-- ================= RUNAS ================= -->
+<section class="view" data-view="runas">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="ru.eyebrow"></p><h1 data-i18n="ru.title"></h1><p data-i18n="ru.sub"></p></header>
   <div class="wrap">
-    <div class="head reveal"><h2>Runas</h2><div class="divider"></div>
-      <p>Cada árbol tiene una runa clave y tres filas de runas menores.</p></div>
     <div class="rune-tabs" id="runeTabs"></div>
     <div class="rune-tree" id="runeTree"></div>
-    <div class="head" style="margin-top:70px"><h2>Hechizos de invocador</h2><div class="divider"></div>
-      <p>Cada jugador elige dos antes de la partida.</p></div>
+    <div class="bhead" style="margin-top:56px"><h2 data-i18n="ru.spells"></h2><p data-i18n="ru.spellsS"></p></div>
     <div class="spells" id="spells"></div>
   </div>
+  <div class="ad-slot" data-hueco="tras-runas"></div>
 </section>
 
-<div class="ad-slot" data-hueco="tras-runas"></div>
-
-<!-- ============ BUILD ============ -->
-<section id="build">
+<!-- ================= COMPARADOR ================= -->
+<section class="view" data-view="comparador">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="cmp.eyebrow"></p><h1 data-i18n="cmp.title"></h1><p data-i18n="cmp.sub"></p></header>
   <div class="wrap">
-    <div class="head reveal"><h2>Simulador de build</h2><div class="divider"></div>
-      <p>Elige un campeón, su nivel y hasta 6 objetos, y mira cómo quedan sus estadísticas.</p></div>
-    <div class="build-grid">
-      <div class="build-left">
-        <select id="bChamp" aria-label="Campeón"></select>
-        <div class="lvl"><label for="bLvl">Nivel <b id="bLvlTxt">18</b></label><input type="range" id="bLvl" min="1" max="18" value="18"></div>
-        <div class="bportrait" id="bPortrait"></div>
-        <div class="slots" id="bSlots"></div>
-        <div class="bcost" id="bCost"></div>
-        <button class="btn sm" id="bClear">Vaciar build</button>
-      </div>
-      <div class="build-right">
-        <h3>Estadísticas</h3>
-        <div class="bstats" id="bStats"></div>
-        <h3>Efectos de los objetos</h3>
-        <div class="beffects" id="bEffects"><p class="muted">Añade objetos para ver sus efectos.</p></div>
-      </div>
+    <div class="cmp-controls">
+      <button class="champ-pick" id="cmpA" type="button"></button>
+      <span class="vs">VS</span>
+      <button class="champ-pick" id="cmpB" type="button"></button>
     </div>
+    <div class="lvl"><span data-i18n="cmp.level"></span><input type="range" id="cmpLvl" min="1" max="18" value="1"><b id="cmpLvlTxt">1</b></div>
+    <div class="cmp" id="cmpOut"></div>
   </div>
 </section>
 
-<!-- ============ ADIVINA ============ -->
-<section id="adivina">
-  <div class="wrap">
-    <div class="head reveal"><h2>Adivina el campeón</h2><div class="divider"></div>
-      <p>Tienes 5 intentos. Cada fallo te da una pista.</p></div>
-    <div class="filters" id="guessModes"></div>
-    <div class="guess" id="guessBox"></div>
-  </div>
+<!-- ================= BUILD ================= -->
+<section class="view" data-view="build">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="b.eyebrow"></p><h1 data-i18n="b.title"></h1><p data-i18n="b.sub"></p></header>
+  <div class="wrap" id="buildBox"></div>
 </section>
 
-<!-- ============ DRAFT ============ -->
-<section id="draft">
-  <div class="wrap">
-    <div class="head reveal"><h2>Draft simulator</h2><div class="divider"></div>
-      <p>Simula la fase de selección de una partida competitiva: 10 bans y 10 picks por turnos.</p></div>
-    <div class="draft" id="draftBox"></div>
-  </div>
+<!-- ================= DRAFT ================= -->
+<section class="view" data-view="draft">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="d.eyebrow"></p><h1 data-i18n="d.title"></h1><p data-i18n="d.sub"></p></header>
+  <div class="wrap wide" id="draftBox"></div>
 </section>
 
-<!-- ============ QUIZ ============ -->
-<section id="quiz">
-  <div class="wrap">
-    <div class="head reveal"><h2>¿Cuánto sabes?</h2><div class="divider"></div>
-      <p>Modo básico de 6 preguntas, o modo infinito con preguntas generadas con datos reales y 3 vidas.</p></div>
-    <div class="filters" id="quizModes"></div>
-    <div class="quiz" id="quizBox"></div>
-  </div>
-</section>
-
-<div class="ad-slot" data-hueco="tras-juegos"></div>
-
-<!-- ============ JUGADOR ============ -->
-<section id="jugador">
-  <div class="wrap">
-    <div class="head reveal"><h2>Buscar jugador</h2><div class="divider"></div>
-      <p>Introduce un Riot ID (Nombre#TAG) para ver su rango y sus últimas partidas.</p></div>
+<!-- ================= JUGADOR ================= -->
+<section class="view" data-view="jugador">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="p.eyebrow"></p><h1 data-i18n="p.title"></h1><p data-i18n="p.sub"></p></header>
+  <div class="wrap narrow">
     <form class="player-form" id="playerForm">
-      <input id="riotId" placeholder="Nombre#EUW" required autocomplete="off">
+      <label class="field search-field"><i data-icon="search"></i><input id="riotId" data-i18n-ph="p.ph" required autocomplete="off"></label>
       <select id="region" aria-label="Región">
         <option value="euw1">EUW</option><option value="eun1">EUNE</option><option value="na1">NA</option>
         <option value="kr">KR</option><option value="br1">BR</option><option value="la1">LAN</option>
         <option value="la2">LAS</option><option value="tr1">TR</option><option value="jp1">JP</option>
         <option value="oc1">OCE</option><option value="me1">ME</option>
       </select>
-      <button class="btn sm" type="submit">Buscar</button>
+      <button class="btn primary" type="submit" data-i18n="p.search"></button>
     </form>
     <div id="playerOut"></div>
   </div>
 </section>
 
-<!-- ============ OBJETIVOS / ESPORTS / GLOSARIO ============ -->
-<section id="objetivos">
-  <div class="wrap">
-    <div class="head reveal"><h2>Objetivos clave</h2><div class="divider"></div><p>Las partidas se ganan controlando el mapa, no solo matando.</p></div>
-    <div class="objs reveal">
-      <div class="obj"><div class="em">🐉</div><div><h3>Dragones</h3><p>Cada uno da una mejora permanente. Si consigues cuatro, obtienes el Alma del Dragón.</p></div></div>
-      <div class="obj"><div class="em">👁️</div><div><h3>Barón Nashor</h3><p>Aparece a mitad de partida. Su refuerzo hace a tus súbditos mucho más fuertes para empujar.</p></div></div>
-      <div class="obj"><div class="em">🗼</div><div><h3>Torres</h3><p>Dan oro a todo el equipo y abren el mapa. Sin ellas, la base queda expuesta.</p></div></div>
-      <div class="obj"><div class="em">🔦</div><div><h3>Visión</h3><p>Los centinelas (wards) revelan zonas del mapa. Quien tiene visión, tiene información.</p></div></div>
-    </div>
+<!-- ================= ADIVINA ================= -->
+<section class="view" data-view="adivina">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="gs.eyebrow"></p><h1 data-i18n="gs.title"></h1><p data-i18n="gs.sub"></p></header>
+  <div class="wrap narrow">
+    <div class="seg big" id="guessModes"></div>
+    <div class="panel guess" id="guessBox"></div>
   </div>
 </section>
 
-<section id="esports">
-  <div class="wrap">
-    <div class="head reveal"><h2>Historia de los Worlds</h2><div class="divider"></div><p>El Campeonato Mundial es el torneo más importante del año.</p></div>
-    <div class="timeline reveal">
-      <div class="t-item"><b>2011</b><p>Primer mundial en Suecia. Gana Fnatic, el equipo europeo más histórico.</p></div>
-      <div class="t-item"><b>2013</b><p>SK Telecom T1 gana su primer título con un joven Faker en el mid.</p></div>
-      <div class="t-item"><b>2015 – 2016</b><p>SKT T1 encadena dos mundiales seguidos y se convierte en leyenda.</p></div>
-      <div class="t-item"><b>2018</b><p>Invictus Gaming da a China (LPL) su primer campeonato del mundo.</p></div>
-      <div class="t-item"><b>2023 – 2024</b><p>T1 vuelve a la cima y gana dos mundiales consecutivos. Faker supera los cinco títulos.</p></div>
-      <div class="t-item"><b>España</b><p>La Superliga es la liga nacional, una de las regionales más fuertes de Europa.</p></div>
-    </div>
+<!-- ================= QUIZ ================= -->
+<section class="view" data-view="quiz">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="q.eyebrow"></p><h1 data-i18n="q.title"></h1><p data-i18n="q.sub"></p></header>
+  <div class="wrap narrow">
+    <div class="seg big" id="quizModes"></div>
+    <div class="panel quiz" id="quizBox"></div>
   </div>
+  <div class="ad-slot" data-hueco="tras-juegos"></div>
 </section>
 
-<section id="glosario">
-  <div class="wrap">
-    <div class="head reveal"><h2>Glosario</h2><div class="divider"></div><p>La jerga que vas a oír en cada partida.</p></div>
-    <div class="gloss reveal">
-      <details><summary>Farmear</summary><p>Matar súbditos para conseguir oro. También se dice "hacer CS".</p></details>
-      <details><summary>Gankear</summary><p>Atacar por sorpresa a un enemigo en un carril, normalmente desde la jungla.</p></details>
-      <details><summary>Feedear</summary><p>Morir muchas veces y darle oro al rival.</p></details>
-      <details><summary>Rotar</summary><p>Moverse de un carril a otro para ayudar o presionar.</p></details>
-      <details><summary>Wardear</summary><p>Colocar centinelas para tener visión del mapa.</p></details>
-      <details><summary>Backdoor</summary><p>Atacar la base enemiga sin súbditos mientras el rival está ocupado en otro sitio.</p></details>
-      <details><summary>Smurf</summary><p>Jugador con experiencia que juega en una cuenta nueva de nivel bajo.</p></details>
-      <details><summary>GG</summary><p>"Good game". Se dice al acabar la partida… o cuando ya está perdida.</p></details>
-      <details><summary>Split push</summary><p>Empujar un carril en solitario mientras el equipo presiona en otro.</p></details>
-      <details><summary>KDA</summary><p>Asesinatos / Muertes / Asistencias. Se calcula como (K + A) / D.</p></details>
-      <details><summary>Draft</summary><p>Fase de selección y bloqueo de campeones antes de la partida.</p></details>
-      <details><summary>Power spike</summary><p>Momento en que un campeón se vuelve mucho más fuerte, por un nivel o un objeto.</p></details>
-    </div>
-  </div>
-</section>
+</main>
 
 <div class="ad-slot" data-hueco="final"></div>
 
-<footer>
+<footer class="footer">
   <div class="wrap">
-    <p>Página de fans hecha con HTML, CSS y JavaScript. No está afiliada ni respaldada por Riot Games.</p>
-    <p>Datos e imágenes: Data Dragon y Riot Games API. League of Legends es una marca registrada de Riot Games, Inc.</p>
-    <p id="patchInfo"></p>
-    <p class="foot-links"><a href="guias/">Guías</a> · <a href="sobre.html">Sobre la web y contacto</a> · <a href="privacidad.html">Privacidad y cookies</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="#" data-cookies>Configurar cookies</a></p>
+    <div class="foot-top">
+      <a href="#/" class="logo"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 30 16 16 30 2 16Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M16 9l7 7-7 7-7-7z" class="logo-core"/></svg><span>LA GRIETA</span></a>
+      <nav class="foot-links">
+        <a href="guias/" data-i18n="nav.guides"></a>
+        <a href="sobre.html" data-i18n="foot.about"></a>
+        <a href="privacidad.html" data-i18n="foot.privacy"></a>
+        <a href="aviso-legal.html" data-i18n="foot.legal"></a>
+        <a href="#" data-cookies data-i18n="foot.cookies"></a>
+      </nav>
+    </div>
+    <p data-i18n="foot.fan"></p>
+    <p class="muted small" data-i18n="foot.riot"></p>
+    <p class="muted small"><span data-i18n="foot.data"></span> <span id="patchInfo"></span></p>
+    <p class="muted small" data-i18n="foot.guidesNote"></p>
   </div>
 </footer>
 
-<button id="top" aria-label="Volver arriba">↑</button>
+<button id="top" type="button" data-i18n-aria="ui.top"><i data-icon="arrowUp"></i></button>
 <div class="modal" id="modal" role="dialog" aria-modal="true"><div class="mbox" id="mbox"></div></div>
 <div class="toast" id="toast"></div>
 
+<script src="js/config.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/core.js"></script>
 <script src="js/guia.js"></script>
 <script src="js/mapa.js"></script>
 <script src="js/campeones.js"></script>
 <script src="js/objetos.js"></script>
 <script src="js/build.js"></script>
+<script src="js/draft.js"></script>
 <script src="js/juegos.js"></script>
 <script src="js/jugador.js"></script>
 <script src="js/ads.js"></script>

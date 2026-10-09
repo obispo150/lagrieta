@@ -11,28 +11,30 @@
 <meta property="og:description" content="Quién hace La Grieta, de dónde salen los datos y cómo contactar.">
 <meta property="og:url" content="https://lagrieta.eu/sobre.html">
 <meta property="og:locale" content="es_ES">
-<meta name="theme-color" content="#0a0e17">
+<meta name="theme-color" content="#0b0f17">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 <script>try{const t=JSON.parse(localStorage.getItem("tema"));if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
 <body>
 
-<nav class="subnav">
-  <div class="wrap">
-    <a href="index.html" class="logo">LA <span>GRIETA</span></a>
-    <ul id="menu">
-      <li><a href="index.html#campeones">Campeones</a></li>
-      <li><a href="index.html#objetos">Objetos</a></li>
-      <li><a href="index.html#build">Build</a></li>
-      <li><a href="guias/">Guías</a></li>
-      <li><a href="index.html#adivina">Juegos</a></li>
+<nav class="topnav subnav">
+  <div class="wrap nav-inner">
+    <a href="index.html#/" class="logo" aria-label="La Grieta"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 30 16 16 30 2 16Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M16 9l7 7-7 7-7-7z" class="logo-core"/></svg><span>LA GRIETA</span></a>
+    <ul class="menu" id="menu">
+      <li><a href="index.html#/">Inicio</a></li>
+      <li><a href="index.html#/aprende">Aprende</a></li>
+      <li><a href="index.html#/campeones">Campeones</a></li>
+      <li><a href="index.html#/objetos">Objetos</a></li>
+      <li><a href="index.html#/build">Herramientas</a></li>
+      <li><a href="index.html#/adivina">Juegos</a></li>
+      <li><a href="guias/" class="on">Guías</a></li>
     </ul>
     <div class="nav-tools">
-      <button class="icon-btn" id="themeBtn" aria-label="Cambiar tema" title="Modo claro / oscuro">☀️</button>
-      <button class="icon-btn burger" id="burger" aria-label="Menú">☰</button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Cambiar tema"></button>
+      <button class="icon-btn burger" id="burger" type="button" aria-label="Menú"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
 </nav>
@@ -67,11 +69,16 @@
 
 <div class="ad-slot" data-hueco="final"></div>
 
-<footer>
+<footer class="footer">
   <div class="wrap">
-    <p>Página de fans hecha con HTML, CSS y JavaScript. No está afiliada ni respaldada por Riot Games.</p>
-    <p>League of Legends es una marca registrada de Riot Games, Inc.</p>
-    <p class="foot-links"><a href="guias/">Guías</a> · <a href="sobre.html">Sobre la web y contacto</a> · <a href="privacidad.html">Privacidad y cookies</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="#" data-cookies>Configurar cookies</a></p>
+    <div class="foot-top">
+      <a href="index.html#/" class="logo"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 30 16 16 30 2 16Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M16 9l7 7-7 7-7-7z" class="logo-core"/></svg><span>LA GRIETA</span></a>
+      <nav class="foot-links">
+        <a href="guias/">Guías</a><a href="sobre.html">Sobre la web</a><a href="privacidad.html">Privacidad y cookies</a><a href="aviso-legal.html">Aviso legal</a><a href="#" data-cookies>Configurar cookies</a>
+      </nav>
+    </div>
+    <p>Web de fans. No está afiliada ni respaldada por Riot Games.</p>
+    <p class="muted small">La Grieta no está respaldada por Riot Games y no refleja las opiniones de Riot Games ni de nadie oficialmente involucrado en la producción o gestión de sus propiedades. Riot Games y todas las propiedades asociadas son marcas comerciales o marcas registradas de Riot Games, Inc.</p>
   </div>
 </footer>
 
