@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Grieta — Guía de League of Legends</title>
+<meta name="description" content="Guía no oficial de League of Legends: campeones, objetos, runas, simulador de build, draft, minijuegos y buscador de jugadores.">
+<link rel="canonical" href="https://lagrieta.eu/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="La Grieta — Guía de League of Legends">
+<meta property="og:description" content="Campeones, objetos, runas, simulador de build, draft, minijuegos y guías de League of Legends en español.">
+<meta property="og:url" content="https://lagrieta.eu/">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#0a0e17">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<!-- AdSense: cuando Google te dé tu ID, descomenta esta línea para verificar el sitio
+<meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX">
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script>
+  // Aplica el tema guardado antes de pintar para evitar parpadeo
+  try{ const t = JSON.parse(localStorage.getItem("tema")); if(t) document.documentElement.dataset.theme = t; }catch(e){}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">LA <span>GRIETA</span></a>
+    <ul id="menu">
+      <li class="dd"><a href="#juego">Guía ▾</a>
+        <ul>
+          <li><a href="#juego">El juego</a></li>
+          <li><a href="#roles">Roles</a></li>
+          <li><a href="#mapa">Mapa</a></li>
+          <li><a href="#objetivos">Objetivos</a></li>
+          <li><a href="#esports">Esports</a></li>
+          <li><a href="#glosario">Glosario</a></li>
+        </ul>
+      </li>
+      <li><a href="#campeones">Campeones</a></li>
+      <li><a href="guias/">Guías</a></li>
+      <li class="dd"><a href="#objetos">Tienda ▾</a>
+        <ul>
+          <li><a href="#objetos">Objetos</a></li>
+          <li><a href="#runas">Runas y hechizos</a></li>
+        </ul>
+      </li>
+      <li class="dd"><a href="#comparador">Herramientas ▾</a>
+        <ul>
+          <li><a href="#comparador">Comparador</a></li>
+          <li><a href="#build">Simulador de build</a></li>
+          <li><a href="#jugador">Buscar jugador</a></li>
+        </ul>
+      </li>
+      <li class="dd"><a href="#adivina">Juegos ▾</a>
+        <ul>
+          <li><a href="#adivina">Adivina el campeón</a></li>
+          <li><a href="#draft">Draft simulator</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="nav-tools">
+      <select id="langSel" aria-label="Idioma de los datos" title="Idioma de los datos del juego">
+        <option value="es_ES">ES</option>
+        <option value="es_MX">LATAM</option>
+        <option value="en_US">EN</option>
+        <option value="fr_FR">FR</option>
+        <option value="de_DE">DE</option>
+        <option value="it_IT">IT</option>
+        <option value="pt_BR">PT</option>
+        <option value="ko_KR">KO</option>
+        <option value="ja_JP">JA</option>
+      </select>
+      <button class="icon-btn" id="themeBtn" aria-label="Cambiar tema" title="Modo claro / oscuro">☀️</button>
+      <button class="icon-btn burger" id="burger" aria-label="Menú">☰</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="tag">Guía no oficial</span>
+    <h1>Bienvenido a<br>la Grieta del Invocador</h1>
+    <p>Campeones, objetos, runas, herramientas y minijuegos de League of Legends, con datos oficiales del último parche.</p>
+    <a href="#campeones" class="btn">Ver campeones</a>
+    <a href="#adivina" class="btn ghost">Jugar</a>
+    <div class="stats">
+      <div class="stat"><b data-count="2009" id="statAno">0</b><small>Año de lanzamiento</small></div>
+      <div class="stat"><b data-count="170" id="statChamps">0</b><small>Campeones</small></div>
+      <div class="stat"><b data-count="250" id="statItems">0</b><small>Objetos</small></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ GUÍA ============ -->
+<section id="juego">
+  <div class="wrap">
+    <div class="head reveal"><h2>¿Qué es el LoL?</h2><div class="divider"></div>
+      <p>Un MOBA (Multiplayer Online Battle Arena) gratuito desarrollado por Riot Games.</p></div>
+    <div class="objs reveal">
+      <div class="obj"><div class="em">⚔️</div><div><h3>5 contra 5</h3><p>Dos equipos, cada jugador controla a un campeón con habilidades únicas.</p></div></div>
+      <div class="obj"><div class="em">🏰</div><div><h3>Destruye el Nexo</h3><p>El objetivo final es derribar las torres e inhibidores enemigos y destruir su Nexo.</p></div></div>
+      <div class="obj"><div class="em">💰</div><div><h3>Oro y experiencia</h3><p>Súbditos, monstruos y enemigos dan oro para objetos y experiencia para subir hasta el nivel 18.</p></div></div>
+      <div class="obj"><div class="em">⏱️</div><div><h3>Partidas de 25–35 min</h3><p>Cada partida empieza de cero: nadie tiene ventaja al principio.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="roles">
+  <div class="wrap">
+    <div class="head reveal"><h2>Los 5 roles</h2><div class="divider"></div><p>Haz clic en un rol para ver más detalles.</p></div>
+    <div class="roles reveal" id="roleCards"></div>
+    <div class="role-detail" id="roleDetail"></div>
+  </div>
+</section>
+
+<section id="mapa">
+  <div class="wrap">
+    <div class="head reveal"><h2>La Grieta del Invocador</h2><div class="divider"></div><p>El mapa principal, con sus torres, campamentos y objetivos. Activa o desactiva capas y explora cada elemento.</p></div>
+    <div class="map-grid reveal">
+      <div class="map-box">
+        <div class="map-layers" id="mapLayers"></div>
+        <div class="map-svg" id="mapSvg"></div>
+      </div>
+      <div class="map-side">
+        <div class="map-info" id="mapInfo">
+          <span class="mi-ico">🗺️</span>
+          <div><h4>La Grieta del Invocador</h4><p>Pasa el ratón o toca cualquier elemento del mapa: torres, campamentos, objetivos, bases...</p></div>
+        </div>
+        <ul class="legend">
+          <li><i class="lg lane"></i><b>3 carriles:</b> Top, Mid y Bot, cada uno con 3 torres y un inhibidor por equipo.</li>
+          <li><i class="lg jungle"></i><b>Jungla:</b> laberinto entre carriles con campamentos de monstruos y arbustos.</li>
+          <li><i class="lg river"></i><b>Río:</b> divide el mapa en dos y alberga el Dragón, el Barón y los cangrejos.</li>
+          <li><i class="lg base"></i><b>Bases:</b> cada equipo tiene la suya en una esquina, con su Nexo.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAMPEONES ============ -->
+<section id="campeones">
+  <div class="wrap">
+    <div class="head reveal"><h2>Todos los campeones</h2><div class="divider"></div>
+      <p>Haz clic en un campeón para ver sus habilidades, historia y aspectos. Pulsa ★ para guardarlo en favoritos.</p></div>
+    <div class="filters" id="filters"></div>
+    <div class="toolbar">
+      <input class="search" id="search" type="search" placeholder="Buscar campeón...">
+      <select id="diffSel" aria-label="Dificultad">
+        <option value="0">Cualquier dificultad</option><option value="1">Fácil</option><option value="2">Media</option><option value="3">Difícil</option>
+      </select>
+      <select id="sortSel" aria-label="Ordenar">
+        <option value="az">A → Z</option><option value="za">Z → A</option><option value="diff">Más fáciles primero</option><option value="diffd">Más difíciles primero</option>
+      </select>
+      <button class="btn ghost sm" id="randomBtn">🎲 Aleatorio</button>
+    </div>
+    <p class="count" id="count"></p>
+    <div class="champs" id="champs"></div>
+    <p class="empty" id="empty">No se ha encontrado ningún campeón.</p>
+  </div>
+</section>
+
+<div class="ad-slot" data-hueco="tras-campeones"></div>
+
+<!-- ============ COMPARADOR ============ -->
+<section id="comparador">
+  <div class="wrap">
+    <div class="head reveal"><h2>Comparador</h2><div class="divider"></div>
+      <p>Elige dos campeones y compara sus estadísticas a cualquier nivel.</p></div>
+    <div class="cmp-controls">
+      <select id="cmpA" aria-label="Campeón 1"></select>
+      <span class="vs">VS</span>
+      <select id="cmpB" aria-label="Campeón 2"></select>
+    </div>
+    <div class="lvl"><label for="cmpLvl">Nivel <b id="cmpLvlTxt">1</b></label><input type="range" id="cmpLvl" min="1" max="18" value="1"></div>
+    <div class="cmp" id="cmpOut"></div>
+  </div>
+</section>
+
+<!-- ============ OBJETOS ============ -->
+<section id="objetos">
+  <div class="wrap">
+    <div class="head reveal"><h2>Objetos</h2><div class="divider"></div>
+      <p>La tienda de la Grieta del Invocador. Haz clic en un objeto para ver su receta.</p></div>
+    <div class="filters" id="itemTiers"></div>
+    <div class="filters" id="itemTags"></div>
+    <div class="toolbar">
+      <input class="search" id="itemSearch" type="search" placeholder="Buscar objeto...">
+      <select id="itemSort" aria-label="Ordenar objetos">
+        <option value="az">A → Z</option><option value="price">Más baratos</option><option value="priced">Más caros</option>
+      </select>
+    </div>
+    <p class="count" id="itemCount"></p>
+    <div class="items" id="items"></div>
+  </div>
+</section>
+
+<!-- ============ RUNAS Y HECHIZOS ============ -->
+<section id="runas">
+  <div class="wrap">
+    <div class="head reveal"><h2>Runas</h2><div class="divider"></div>
+      <p>Cada árbol tiene una runa clave y tres filas de runas menores.</p></div>
+    <div class="rune-tabs" id="runeTabs"></div>
+    <div class="rune-tree" id="runeTree"></div>
+    <div class="head" style="margin-top:70px"><h2>Hechizos de invocador</h2><div class="divider"></div>
+      <p>Cada jugador elige dos antes de la partida.</p></div>
+    <div class="spells" id="spells"></div>
+  </div>
+</section>
+
+<div class="ad-slot" data-hueco="tras-runas"></div>
+
+<!-- ============ BUILD ============ -->
+<section id="build">
+  <div class="wrap">
+    <div class="head reveal"><h2>Simulador de build</h2><div class="divider"></div>
+      <p>Elige un campeón, su nivel y hasta 6 objetos, y mira cómo quedan sus estadísticas.</p></div>
+    <div class="build-grid">
+      <div class="build-left">
+        <select id="bChamp" aria-label="Campeón"></select>
+        <div class="lvl"><label for="bLvl">Nivel <b id="bLvlTxt">18</b></label><input type="range" id="bLvl" min="1" max="18" value="18"></div>
+        <div class="bportrait" id="bPortrait"></div>
+        <div class="slots" id="bSlots"></div>
+        <div class="bcost" id="bCost"></div>
+        <button class="btn sm" id="bClear">Vaciar build</button>
+      </div>
+      <div class="build-right">
+        <h3>Estadísticas</h3>
+        <div class="bstats" id="bStats"></div>
+        <h3>Efectos de los objetos</h3>
+        <div class="beffects" id="bEffects"><p class="muted">Añade objetos para ver sus efectos.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ADIVINA ============ -->
+<section id="adivina">
+  <div class="wrap">
+    <div class="head reveal"><h2>Adivina el campeón</h2><div class="divider"></div>
+      <p>Tienes 5 intentos. Cada fallo te da una pista.</p></div>
+    <div class="filters" id="guessModes"></div>
+    <div class="guess" id="guessBox"></div>
+  </div>
+</section>
+
+<!-- ============ DRAFT ============ -->
+<section id="draft">
+  <div class="wrap">
+    <div class="head reveal"><h2>Draft simulator</h2><div class="divider"></div>
+      <p>Simula la fase de selección de una partida competitiva: 10 bans y 10 picks por turnos.</p></div>
+    <div class="draft" id="draftBox"></div>
+  </div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section id="quiz">
+  <div class="wrap">
+    <div class="head reveal"><h2>¿Cuánto sabes?</h2><div class="divider"></div>
+      <p>Modo básico de 6 preguntas, o modo infinito con preguntas generadas con datos reales y 3 vidas.</p></div>
+    <div class="filters" id="quizModes"></div>
+    <div class="quiz" id="quizBox"></div>
+  </div>
+</section>
+
+<div class="ad-slot" data-hueco="tras-juegos"></div>
+
+<!-- ============ JUGADOR ============ -->
+<section id="jugador">
+  <div class="wrap">
+    <div class="head reveal"><h2>Buscar jugador</h2><div class="divider"></div>
+      <p>Introduce un Riot ID (Nombre#TAG) para ver su rango y sus últimas partidas.</p></div>
+    <form class="player-form" id="playerForm">
+      <input id="riotId" placeholder="Nombre#EUW" required autocomplete="off">
+      <select id="region" aria-label="Región">
+        <option value="euw1">EUW</option><option value="eun1">EUNE</option><option value="na1">NA</option>
+        <option value="kr">KR</option><option value="br1">BR</option><option value="la1">LAN</option>
+        <option value="la2">LAS</option><option value="tr1">TR</option><option value="jp1">JP</option>
+        <option value="oc1">OCE</option><option value="me1">ME</option>
+      </select>
+      <button class="btn sm" type="submit">Buscar</button>
+    </form>
+    <div id="playerOut"></div>
+  </div>
+</section>
+
+<!-- ============ OBJETIVOS / ESPORTS / GLOSARIO ============ -->
+<section id="objetivos">
+  <div class="wrap">
+    <div class="head reveal"><h2>Objetivos clave</h2><div class="divider"></div><p>Las partidas se ganan controlando el mapa, no solo matando.</p></div>
+    <div class="objs reveal">
+      <div class="obj"><div class="em">🐉</div><div><h3>Dragones</h3><p>Cada uno da una mejora permanente. Si consigues cuatro, obtienes el Alma del Dragón.</p></div></div>
+      <div class="obj"><div class="em">👁️</div><div><h3>Barón Nashor</h3><p>Aparece a mitad de partida. Su refuerzo hace a tus súbditos mucho más fuertes para empujar.</p></div></div>
+      <div class="obj"><div class="em">🗼</div><div><h3>Torres</h3><p>Dan oro a todo el equipo y abren el mapa. Sin ellas, la base queda expuesta.</p></div></div>
+      <div class="obj"><div class="em">🔦</div><div><h3>Visión</h3><p>Los centinelas (wards) revelan zonas del mapa. Quien tiene visión, tiene información.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="esports">
+  <div class="wrap">
+    <div class="head reveal"><h2>Historia de los Worlds</h2><div class="divider"></div><p>El Campeonato Mundial es el torneo más importante del año.</p></div>
+    <div class="timeline reveal">
+      <div class="t-item"><b>2011</b><p>Primer mundial en Suecia. Gana Fnatic, el equipo europeo más histórico.</p></div>
+      <div class="t-item"><b>2013</b><p>SK Telecom T1 gana su primer título con un joven Faker en el mid.</p></div>
+      <div class="t-item"><b>2015 – 2016</b><p>SKT T1 encadena dos mundiales seguidos y se convierte en leyenda.</p></div>
+      <div class="t-item"><b>2018</b><p>Invictus Gaming da a China (LPL) su primer campeonato del mundo.</p></div>
+      <div class="t-item"><b>2023 – 2024</b><p>T1 vuelve a la cima y gana dos mundiales consecutivos. Faker supera los cinco títulos.</p></div>
+      <div class="t-item"><b>España</b><p>La Superliga es la liga nacional, una de las regionales más fuertes de Europa.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="glosario">
+  <div class="wrap">
+    <div class="head reveal"><h2>Glosario</h2><div class="divider"></div><p>La jerga que vas a oír en cada partida.</p></div>
+    <div class="gloss reveal">
+      <details><summary>Farmear</summary><p>Matar súbditos para conseguir oro. También se dice "hacer CS".</p></details>
+      <details><summary>Gankear</summary><p>Atacar por sorpresa a un enemigo en un carril, normalmente desde la jungla.</p></details>
+      <details><summary>Feedear</summary><p>Morir muchas veces y darle oro al rival.</p></details>
+      <details><summary>Rotar</summary><p>Moverse de un carril a otro para ayudar o presionar.</p></details>
+      <details><summary>Wardear</summary><p>Colocar centinelas para tener visión del mapa.</p></details>
+      <details><summary>Backdoor</summary><p>Atacar la base enemiga sin súbditos mientras el rival está ocupado en otro sitio.</p></details>
+      <details><summary>Smurf</summary><p>Jugador con experiencia que juega en una cuenta nueva de nivel bajo.</p></details>
+      <details><summary>GG</summary><p>"Good game". Se dice al acabar la partida… o cuando ya está perdida.</p></details>
+      <details><summary>Split push</summary><p>Empujar un carril en solitario mientras el equipo presiona en otro.</p></details>
+      <details><summary>KDA</summary><p>Asesinatos / Muertes / Asistencias. Se calcula como (K + A) / D.</p></details>
+      <details><summary>Draft</summary><p>Fase de selección y bloqueo de campeones antes de la partida.</p></details>
+      <details><summary>Power spike</summary><p>Momento en que un campeón se vuelve mucho más fuerte, por un nivel o un objeto.</p></details>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot" data-hueco="final"></div>
+
+<footer>
+  <div class="wrap">
+    <p>Página de fans hecha con HTML, CSS y JavaScript. No está afiliada ni respaldada por Riot Games.</p>
+    <p>Datos e imágenes: Data Dragon y Riot Games API. League of Legends es una marca registrada de Riot Games, Inc.</p>
+    <p id="patchInfo"></p>
+    <p class="foot-links"><a href="guias/">Guías</a> · <a href="sobre.html">Sobre la web y contacto</a> · <a href="privacidad.html">Privacidad y cookies</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="#" data-cookies>Configurar cookies</a></p>
+  </div>
+</footer>
+
+<button id="top" aria-label="Volver arriba">↑</button>
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="mbox" id="mbox"></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="js/core.js"></script>
+<script src="js/guia.js"></script>
+<script src="js/mapa.js"></script>
+<script src="js/campeones.js"></script>
+<script src="js/objetos.js"></script>
+<script src="js/build.js"></script>
+<script src="js/juegos.js"></script>
+<script src="js/jugador.js"></script>
+<script src="js/ads.js"></script>
+</body>
+</html>
