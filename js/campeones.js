@@ -82,6 +82,8 @@
     const idx = Math.max(0, lista.findIndex(x => x.id === c.id));
     const prev = lista[(idx - 1 + lista.length) % lista.length], next = lista[(idx + 1) % lista.length];
     const tips = (arr, titulo, cls) => arr?.length ? `<div class="${cls}"><h4>${titulo}</h4><ul>${arr.map(x => `<li>${limpia(x)}</li>`).join("")}</ul></div>` : "";
+    // Los cromas vienen con "parentSkin": no tienen imagen propia, así que se quitan
+    const skins = c.skins.filter(s => !s.parentSkin);
     const favBtn = () => APP.favs.has(c.id) ? icon("starFill") + t("ch.inFav") : icon("star") + t("ch.addFav");
 
     abrirModal(`
@@ -111,8 +113,8 @@
         <h3>${t("ch.lore")}</h3>
         <p class="lore">${limpia(c.lore)}</p>
         ${(c.allytips?.length || c.enemytips?.length) ? `<h3>${t("ch.tips")}</h3><div class="tips">${tips(c.allytips, t("ch.playing", { n: esc(c.name) }), "")}${tips(c.enemytips, t("ch.against", { n: esc(c.name) }), "en")}</div>` : ""}
-        <h3>${t("ch.skins")} <span class="muted" id="skinCount">(${c.skins.length})</span></h3>
-        <div class="skins" id="skins">${c.skins.map(s => `<figure><img loading="lazy" src="${img.loading(c.id, s.num)}" alt="${esc(s.name)}"><figcaption>${s.num === 0 ? t("ch.classic") : esc(s.name)}</figcaption></figure>`).join("")}</div>
+        <h3>${t("ch.skins")} <span class="muted" id="skinCount">(${skins.length})</span></h3>
+        <div class="skins" id="skins">${skins.map(s => `<figure><img loading="lazy" src="${img.loading(c.id, s.num)}" alt="${esc(s.name)}"><figcaption>${s.num === 0 ? t("ch.classic") : esc(s.name)}</figcaption></figure>`).join("")}</div>
         <div class="mnav">
           <button class="btn sm" type="button" data-go="${prev.id}">${icon("chevLeft")}${esc(prev.name)}</button>
           <button class="btn sm" type="button" data-go="${next.id}">${esc(next.name)}${icon("chevRight")}</button>

@@ -178,6 +178,7 @@ let vistaActual = null;
 function mostrarVista(v, { arriba = true } = {}) {
   const cambia = v !== vistaActual;
   vistaActual = v;
+  if (cambia && modal.classList.contains("open")) { modal.classList.remove("open"); document.body.style.overflow = ""; }
   document.querySelectorAll(".view").forEach(s => s.classList.toggle("on", s.dataset.view === v));
   document.querySelectorAll("[data-route]").forEach(a => a.classList.toggle("on", a.dataset.route === v));
   document.querySelectorAll(".menu .dd").forEach(d => d.classList.toggle("on", !!d.querySelector(`[data-route="${v}"]`)));
