@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Grieta — Guía de League of Legends en español</title>
+<meta name="description" content="Campeones, objetos, runas, comparador, simulador de build, draft, minijuegos y guías de League of Legends en español.">
+<link rel="canonical" href="https://lagrieta.eu/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="La Grieta — Guía de League of Legends">
+<meta property="og:description" content="Campeones, objetos, runas, simulador de build, draft, minijuegos y guías de League of Legends en español.">
+<meta property="og:url" content="https://lagrieta.eu/">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#0b0f17">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<!-- AdSense: cuando Google te dé tu ID, descomenta esta línea para verificar el sitio
+<meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX">
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script>try{const t=JSON.parse(localStorage.getItem("tema"));if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+
+<!-- ================= NAVEGACIÓN ================= -->
+<nav class="topnav">
+  <div class="wrap nav-inner">
+    <a href="#/" class="logo" aria-label="La Grieta">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 30 16 16 30 2 16Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M16 9l7 7-7 7-7-7z" class="logo-core"/></svg>
+      <span>LA GRIETA</span>
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#/" data-route="inicio" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="#/aprende" data-route="aprende" data-i18n="nav.learn">Aprende</a></li>
+      <li><a href="#/campeones" data-route="campeones" data-i18n="nav.champions">Campeones</a></li>
+      <li class="dd">
+        <button class="dd-btn" type="button"><span data-i18n="nav.shop">Objetos</span><i data-icon="chevDown"></i></button>
+        <div class="dd-panel">
+          <a href="#/objetos" data-route="objetos"><i data-icon="bag"></i><span><b data-i18n="nav.items">Objetos</b><small data-i18n="nav.itemsD"></small></span></a>
+          <a href="#/runas" data-route="runas"><i data-icon="rune"></i><span><b data-i18n="nav.runes">Runas y hechizos</b><small data-i18n="nav.runesD"></small></span></a>
+        </div>
+      </li>
+      <li class="dd">
+        <button class="dd-btn" type="button"><span data-i18n="nav.tools">Herramientas</span><i data-icon="chevDown"></i></button>
+        <div class="dd-panel">
+          <a href="#/comparador" data-route="comparador"><i data-icon="scale"></i><span><b data-i18n="nav.compare">Comparador</b><small data-i18n="nav.compareD"></small></span></a>
+          <a href="#/build" data-route="build"><i data-icon="hammer"></i><span><b data-i18n="nav.build">Simulador de build</b><small data-i18n="nav.buildD"></small></span></a>
+          <a href="#/draft" data-route="draft"><i data-icon="draft"></i><span><b data-i18n="nav.draft">Draft</b><small data-i18n="nav.draftD"></small></span></a>
+          <a href="#/jugador" data-route="jugador"><i data-icon="search"></i><span><b data-i18n="nav.player">Buscar jugador</b><small data-i18n="nav.playerD"></small></span></a>
+        </div>
+      </li>
+      <li class="dd">
+        <button class="dd-btn" type="button"><span data-i18n="nav.games">Juegos</span><i data-icon="chevDown"></i></button>
+        <div class="dd-panel">
+          <a href="#/adivina" data-route="adivina"><i data-icon="question"></i><span><b data-i18n="nav.guess">Adivina el campeón</b><small data-i18n="nav.guessD"></small></span></a>
+          <a href="#/quiz" data-route="quiz"><i data-icon="brain"></i><span><b data-i18n="nav.quiz">Quiz</b><small data-i18n="nav.quizD"></small></span></a>
+        </div>
+      </li>
+      <li><a href="guias/" data-i18n="nav.guides">Guías</a></li>
+    </ul>
+    <div class="nav-tools">
+      <div class="seg" id="langSeg" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="es">ES</button><button type="button" data-lang="en">EN</button>
+      </div>
+      <button class="icon-btn" id="themeBtn" type="button" data-i18n-aria="ui.theme"></button>
+      <button class="icon-btn burger" id="burger" type="button" data-i18n-aria="ui.menu"><i data-icon="menu"></i></button>
+    </div>
+  </div>
+</nav>
+
+<main id="app">
+
+<!-- ================= INICIO ================= -->
+<section class="view" data-view="inicio">
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow" data-i18n="home.eyebrow"></p>
+      <h1 data-i18n="home.title"></h1>
+      <p class="lead" data-i18n="home.sub"></p>
+      <div class="hero-cta">
+        <a href="#/campeones" class="btn primary"><span data-i18n="home.cta1"></span><i data-icon="chevRight"></i></a>
+        <a href="#/adivina" class="btn"><i data-icon="question"></i><span data-i18n="home.cta2"></span></a>
+      </div>
+      <dl class="hero-stats">
+        <div><dt data-i18n="home.stat1"></dt><dd id="statChamps">—</dd></div>
+        <div><dt data-i18n="home.stat2"></dt><dd id="statItems">—</dd></div>
+        <div><dt data-i18n="home.stat3"></dt><dd id="statPatch">—</dd></div>
+      </dl>
+    </div>
+    <div class="hero-art" id="heroArt" aria-hidden="true"></div>
+  </header>
+
+  <div class="wrap block">
+    <div class="bhead"><h2 data-i18n="home.exploreT"></h2><p data-i18n="home.exploreS"></p></div>
+    <div class="feature-grid">
+      <a class="feature" href="#/campeones"><i data-icon="users"></i><b data-i18n="nav.champions"></b><span data-i18n="card.champions"></span></a>
+      <a class="feature" href="#/objetos"><i data-icon="bag"></i><b data-i18n="nav.items"></b><span data-i18n="card.items"></span></a>
+      <a class="feature" href="#/runas"><i data-icon="rune"></i><b data-i18n="nav.runes"></b><span data-i18n="card.runes"></span></a>
+      <a class="feature" href="#/comparador"><i data-icon="scale"></i><b data-i18n="nav.compare"></b><span data-i18n="card.compare"></span></a>
+      <a class="feature" href="#/build"><i data-icon="hammer"></i><b data-i18n="nav.build"></b><span data-i18n="card.build"></span></a>
+      <a class="feature" href="#/draft"><i data-icon="draft"></i><b data-i18n="nav.draft"></b><span data-i18n="card.draft"></span></a>
+      <a class="feature" href="#/adivina"><i data-icon="question"></i><b data-i18n="nav.guess"></b><span data-i18n="card.guess"></span></a>
+      <a class="feature" href="#/quiz"><i data-icon="brain"></i><b data-i18n="nav.quiz"></b><span data-i18n="card.quiz"></span></a>
+    </div>
+  </div>
+
+  <div class="wrap block">
+    <div class="bhead row"><div><h2 data-i18n="home.guidesT"></h2><p data-i18n="home.guidesS"></p></div>
+      <a class="link-more" href="guias/"><span data-i18n="home.allGuides"></span><i data-icon="chevRight"></i></a></div>
+    <div class="guide-row">
+      <a class="guide-mini" href="guias/principiantes.html"><span class="gm-tag">01</span><b data-i18n="g.beginners"></b><small data-min="7"></small></a>
+      <a class="guide-mini" href="guias/roles.html"><span class="gm-tag">02</span><b data-i18n="g.roles"></b><small data-min="8"></small></a>
+      <a class="guide-mini" href="guias/campeones-faciles.html"><span class="gm-tag">03</span><b data-i18n="g.easy"></b><small data-min="5"></small></a>
+    </div>
+  </div>
+
+  <div class="wrap block">
+    <a class="learn-banner" href="#/aprende">
+      <div><h2 data-i18n="home.learnT"></h2><p data-i18n="home.learnS"></p></div>
+      <span class="btn primary"><span data-i18n="home.learnCta"></span><i data-icon="chevRight"></i></span>
+    </a>
+  </div>
+</section>
+
+<!-- ================= APRENDE ================= -->
+<section class="view" data-view="aprende">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="learn.eyebrow"></p><h1 data-i18n="learn.title"></h1><p data-i18n="learn.sub"></p>
+    <div class="subtabs">
+      <a href="#juego" data-i18n="learn.tabGame"></a><a href="#roles" data-i18n="learn.tabRoles"></a><a href="#mapa" data-i18n="learn.tabMap"></a>
+      <a href="#objetivos" data-i18n="learn.tabObj"></a><a href="#esports" data-i18n="learn.tabEsports"></a><a href="#glosario" data-i18n="learn.tabGloss"></a>
+    </div>
+  </header>
+
+  <div class="wrap block" id="juego">
+    <div class="bhead"><h2 data-i18n="game.h"></h2></div>
+    <div class="info-grid">
+      <div class="info"><i data-icon="swords"></i><h3 data-i18n="game.c1t"></h3><p data-i18n="game.c1"></p></div>
+      <div class="info"><i data-icon="castle"></i><h3 data-i18n="game.c2t"></h3><p data-i18n="game.c2"></p></div>
+      <div class="info"><i data-icon="coins"></i><h3 data-i18n="game.c3t"></h3><p data-i18n="game.c3"></p></div>
+      <div class="info"><i data-icon="clock"></i><h3 data-i18n="game.c4t"></h3><p data-i18n="game.c4"></p></div>
+    </div>
+  </div>
+
+  <div class="wrap block" id="roles">
+    <div class="bhead"><h2 data-i18n="roles.h"></h2><p data-i18n="roles.sub"></p></div>
+    <div class="roles" id="roleCards"></div>
+    <div class="role-detail" id="roleDetail"></div>
+  </div>
+
+  <div class="wrap block" id="mapa">
+    <div class="bhead"><h2 data-i18n="map.h"></h2><p data-i18n="map.sub"></p></div>
+    <div class="map-grid">
+      <div class="map-box">
+        <div class="map-layers" id="mapLayers"></div>
+        <div class="map-svg" id="mapSvg"></div>
+      </div>
+      <div class="map-side">
+        <div class="map-info" id="mapInfo"></div>
+        <ul class="legend">
+          <li><i class="lg lane"></i><span data-i18n="map.lg.lane"></span></li>
+          <li><i class="lg jungle"></i><span data-i18n="map.lg.jungle"></span></li>
+          <li><i class="lg river"></i><span data-i18n="map.lg.river"></span></li>
+          <li><i class="lg base"></i><span data-i18n="map.lg.base"></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap block" id="objetivos">
+    <div class="bhead"><h2 data-i18n="obj.h"></h2><p data-i18n="obj.sub"></p></div>
+    <div class="info-grid">
+      <div class="info"><i data-icon="flame"></i><h3 data-i18n="obj.c1t"></h3><p data-i18n="obj.c1"></p></div>
+      <div class="info"><i data-icon="eye"></i><h3 data-i18n="obj.c2t"></h3><p data-i18n="obj.c2"></p></div>
+      <div class="info"><i data-icon="tower"></i><h3 data-i18n="obj.c3t"></h3><p data-i18n="obj.c3"></p></div>
+      <div class="info"><i data-icon="target"></i><h3 data-i18n="obj.c4t"></h3><p data-i18n="obj.c4"></p></div>
+    </div>
+  </div>
+
+  <div class="wrap block" id="esports">
+    <div class="bhead"><h2 data-i18n="esp.h"></h2><p data-i18n="esp.sub"></p></div>
+    <ol class="timeline" id="timeline"></ol>
+  </div>
+
+  <div class="wrap block" id="glosario">
+    <div class="bhead"><h2 data-i18n="gl.h"></h2><p data-i18n="gl.sub"></p></div>
+    <div class="gloss" id="gloss"></div>
+  </div>
+</section>
+
+<!-- ================= CAMPEONES ================= -->
+<section class="view" data-view="campeones">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="ch.eyebrow"></p><h1 data-i18n="ch.title"></h1><p data-i18n="ch.sub"></p></header>
+  <div class="wrap">
+    <div class="toolbar">
+      <label class="field search-field"><i data-icon="search"></i><input id="search" type="search" data-i18n-ph="ui.search"></label>
+      <select id="diffSel" aria-label="Dificultad">
+        <option value="0" data-i18n="ch.anyDiff"></option><option value="1" data-i18n="ch.easy"></option><option value="2" data-i18n="ch.medium"></option><option value="3" data-i18n="ch.hard"></option>
+      </select>
+      <select id="sortSel" aria-label="Orden">
+        <option value="az" data-i18n="ch.sortAZ"></option><option value="za" data-i18n="ch.sortZA"></option><option value="diff" data-i18n="ch.sortEasy"></option><option value="diffd" data-i18n="ch.sortHard"></option>
+      </select>
+      <button class="btn" id="randomBtn" type="button"><i data-icon="dice"></i><span data-i18n="ui.random"></span></button>
+    </div>
+    <div class="chips-row" id="filters"></div>
+    <p class="count" id="count"></p>
+    <div class="champs" id="champs"></div>
+    <p class="empty" id="empty"></p>
+  </div>
+  <div class="ad-slot" data-hueco="tras-campeones"></div>
+</section>
+
+<!-- ================= OBJETOS ================= -->
+<section class="view" data-view="objetos">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="it.eyebrow"></p><h1 data-i18n="it.title"></h1><p data-i18n="it.sub"></p></header>
+  <div class="wrap">
+    <div class="toolbar">
+      <label class="field search-field"><i data-icon="search"></i><input id="itemSearch" type="search" data-i18n-ph="ui.search"></label>
+      <select id="itemSort" aria-label="Orden">
+        <option value="az" data-i18n="it.sortAZ"></option><option value="price" data-i18n="it.sortCheap"></option><option value="priced" data-i18n="it.sortExp"></option>
+      </select>
+    </div>
+    <div class="chips-row" id="itemTiers"></div>
+    <div class="chips-row small" id="itemTags"></div>
+    <p class="count" id="itemCount"></p>
+    <div class="items" id="items"></div>
+  </div>
+</section>
+
+<!-- ================= RUNAS ================= -->
+<section class="view" data-view="runas">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="ru.eyebrow"></p><h1 data-i18n="ru.title"></h1><p data-i18n="ru.sub"></p></header>
+  <div class="wrap">
+    <div class="rune-tabs" id="runeTabs"></div>
+    <div class="rune-tree" id="runeTree"></div>
+    <div class="bhead" style="margin-top:56px"><h2 data-i18n="ru.spells"></h2><p data-i18n="ru.spellsS"></p></div>
+    <div class="spells" id="spells"></div>
+  </div>
+  <div class="ad-slot" data-hueco="tras-runas"></div>
+</section>
+
+<!-- ================= COMPARADOR ================= -->
+<section class="view" data-view="comparador">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="cmp.eyebrow"></p><h1 data-i18n="cmp.title"></h1><p data-i18n="cmp.sub"></p></header>
+  <div class="wrap">
+    <div class="cmp-controls">
+      <button class="champ-pick" id="cmpA" type="button"></button>
+      <span class="vs">VS</span>
+      <button class="champ-pick" id="cmpB" type="button"></button>
+    </div>
+    <div class="lvl"><span data-i18n="cmp.level"></span><input type="range" id="cmpLvl" min="1" max="18" value="1"><b id="cmpLvlTxt">1</b></div>
+    <div class="cmp" id="cmpOut"></div>
+  </div>
+</section>
+
+<!-- ================= BUILD ================= -->
+<section class="view" data-view="build">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="b.eyebrow"></p><h1 data-i18n="b.title"></h1><p data-i18n="b.sub"></p></header>
+  <div class="wrap" id="buildBox"></div>
+</section>
+
+<!-- ================= DRAFT ================= -->
+<section class="view" data-view="draft">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="d.eyebrow"></p><h1 data-i18n="d.title"></h1><p data-i18n="d.sub"></p></header>
+  <div class="wrap wide" id="draftBox"></div>
+</section>
+
+<!-- ================= JUGADOR ================= -->
+<section class="view" data-view="jugador">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="p.eyebrow"></p><h1 data-i18n="p.title"></h1><p data-i18n="p.sub"></p></header>
+  <div class="wrap narrow">
+    <form class="player-form" id="playerForm">
+      <label class="field search-field"><i data-icon="search"></i><input id="riotId" data-i18n-ph="p.ph" required autocomplete="off"></label>
+      <select id="region" aria-label="Región">
+        <option value="euw1">EUW</option><option value="eun1">EUNE</option><option value="na1">NA</option>
+        <option value="kr">KR</option><option value="br1">BR</option><option value="la1">LAN</option>
+        <option value="la2">LAS</option><option value="tr1">TR</option><option value="jp1">JP</option>
+        <option value="oc1">OCE</option><option value="me1">ME</option>
+      </select>
+      <button class="btn primary" type="submit" data-i18n="p.search"></button>
+    </form>
+    <div id="playerOut"></div>
+  </div>
+</section>
+
+<!-- ================= ADIVINA ================= -->
+<section class="view" data-view="adivina">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="gs.eyebrow"></p><h1 data-i18n="gs.title"></h1><p data-i18n="gs.sub"></p></header>
+  <div class="wrap narrow">
+    <div class="seg big" id="guessModes"></div>
+    <div class="panel guess" id="guessBox"></div>
+  </div>
+</section>
+
+<!-- ================= QUIZ ================= -->
+<section class="view" data-view="quiz">
+  <header class="vhead wrap"><p class="eyebrow" data-i18n="q.eyebrow"></p><h1 data-i18n="q.title"></h1><p data-i18n="q.sub"></p></header>
+  <div class="wrap narrow">
+    <div class="seg big" id="quizModes"></div>
+    <div class="panel quiz" id="quizBox"></div>
+  </div>
+  <div class="ad-slot" data-hueco="tras-juegos"></div>
+</section>
+
+</main>
+
+<div class="ad-slot" data-hueco="final"></div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <a href="#/" class="logo"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 30 16 16 30 2 16Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M16 9l7 7-7 7-7-7z" class="logo-core"/></svg><span>LA GRIETA</span></a>
+      <nav class="foot-links">
+        <a href="guias/" data-i18n="nav.guides"></a>
+        <a href="sobre.html" data-i18n="foot.about"></a>
+        <a href="privacidad.html" data-i18n="foot.privacy"></a>
+        <a href="aviso-legal.html" data-i18n="foot.legal"></a>
+        <a href="#" data-cookies data-i18n="foot.cookies"></a>
+      </nav>
+    </div>
+    <p data-i18n="foot.fan"></p>
+    <p class="muted small" data-i18n="foot.riot"></p>
+    <p class="muted small"><span data-i18n="foot.data"></span> <span id="patchInfo"></span></p>
+    <p class="muted small" data-i18n="foot.guidesNote"></p>
+  </div>
+</footer>
+
+<button id="top" type="button" data-i18n-aria="ui.top"><i data-icon="arrowUp"></i></button>
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="mbox" id="mbox"></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="js/config.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/core.js"></script>
+<script src="js/guia.js"></script>
+<script src="js/mapa.js"></script>
+<script src="js/campeones.js"></script>
+<script src="js/objetos.js"></script>
+<script src="js/build.js"></script>
+<script src="js/draft.js"></script>
+<script src="js/juegos.js"></script>
+<script src="js/jugador.js"></script>
+<script src="js/ads.js"></script>
+</body>
+</html>
